@@ -1,6 +1,7 @@
-const component = () => {
+import _ from 'lodash'
+function component() {
     const button = document.createElement('button');
-    button.innerText = _.join(['hello', 'world'], ' ');
+    button.textContent = _.join(['hello', 'world'], ' ');
 
     return button;
 }
