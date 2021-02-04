@@ -1,7 +1,9 @@
 export default function runStringMethods() {   
 
     document.body.appendChild(replaceWord('reza'));
-    document.body.appendChild(strToList())
+    const div = document.createElement('div');
+    div.innerHTML = strToList();
+    document.body.appendChild(div)
 
     function replaceWord(word) {
         const txt = "Definition and Usage\
@@ -27,12 +29,12 @@ export default function runStringMethods() {
         "If a parameter is negative, the position is counted from the end of the string."+
         "This example slices out a portion of a string from position -12 to position -6:";
         const txtArr = txt.split('.');
-        const list = document.createElement('ul');
-        txtArr.forEach(function(item){
-            const li = document.createElement('li');
-            li.textContent = item;
-            list.appendChild(li);
-        }) 
+        let list = "<ul>";
+        txtArr.forEach(function(item,i){
+            list += "<li>" + item + "</li>";
+            i == txtArr.length - 1 && (list += "</ul>"); 
+        });
+        console.log('list : ', list);
         return list;
     }
 }
