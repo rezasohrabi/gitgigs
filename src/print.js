@@ -1,6 +1,6 @@
 export default function print(){
     console.log('print message')
-    document.body.style.backgroundColor = 'red'
+    document.body.style.backgroundColor = '#eeeeee'
 }
 
 print();
