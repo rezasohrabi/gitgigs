@@ -23,4 +23,15 @@ export default function runArrayMethods() {
         console.log('Max value is:', max);
 
     }
+    logMethods(['reza', 'hasan', 'hamid', 'reza', 'mohammad']);
+    function logMethods(arr){
+        console.log("array origin value:", arr);
+        console.log("pop return value:", arr.pop());
+        console.log("push value:", arr.push('soheil'));
+        console.log("shift first value:", arr.shift());
+        console.log("unshift first value:", arr.unshift('masood'));
+        console.log("splice:", arr.splice(2, 0, ...['splice', 'splice']));
+        console.log("concat:", arr.concat(['array1', 'array1', 'array1', 'array1'], ['array2', 'array2', 'array2']));
+        console.log("slice:", arr.slice(0,10));
+    }
 }
