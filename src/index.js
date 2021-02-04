@@ -1,8 +1,7 @@
 import _ from 'lodash'
-import runStringMethods from './js-methods/strings'
+import runArrayMethods from './js-methods/array'
 
-
-runStringMethods();
+runArrayMethods();
 function component() {
     const button = document.createElement('button');
     button.textContent = _.join(['hello', 'world'], ' ');
