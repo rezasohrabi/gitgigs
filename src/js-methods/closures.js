@@ -113,6 +113,7 @@ export default function runClosureMethods() {
     document.body.appendChild(input1);
     document.body.appendChild(input2);
     document.body.appendChild(input3);
+    setupPlaceholder();
 
     function showPlaceholder(item) {
         document.getElementById(item.id).placeholder = item.placeholder;
@@ -132,6 +133,23 @@ export default function runClosureMethods() {
             }
         }
     }
-    setupPlaceholder();
+
+    //solution
+    function setupPlaceholder() {
+        var data = [
+            {'id': 'input1', 'placeholder': 'this is placeholder of input1'},
+            {'id': 'input2', 'placeholder': 'this is placeholder of input2'},
+            {'id': 'input3', 'placeholder': 'this is placeholder of input3'}
+        ];
+
+        for(var i = 0; i < data.length; i++) {
+            (function() {
+                var item = data[i];
+                document.getElementById(item.id).onclick = function() {
+                    showPlaceholder(item);
+                }
+            })()
+        }
+    }
 
 }
