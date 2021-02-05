@@ -101,4 +101,37 @@ export default function runClosureMethods() {
     console.log('counter2.increment', counter2.increment());
     console.log('counter2.decrement', counter2.decrement());
     console.log('counter2.value', counter2.value());
+
+
+    //closure in loop
+    var input1 = document.createElement('input');
+    var input2 = document.createElement('input');
+    var input3 = document.createElement('input');
+    input1.id = 'input1';
+    input2.id = 'input2';
+    input3.id = 'input3';
+    document.body.appendChild(input1);
+    document.body.appendChild(input2);
+    document.body.appendChild(input3);
+
+    function showPlaceholder(item) {
+        document.getElementById(item.id).placeholder = item.placeholder;
+    }
+
+    function setupPlaceholder() {
+        var data = [
+            {'id': 'input1', 'placeholder': 'this is placeholder of input1'},
+            {'id': 'input2', 'placeholder': 'this is placeholder of input2'},
+            {'id': 'input3', 'placeholder': 'this is placeholder of input3'}
+        ];
+
+        for(var i = 0; i < data.length; i++) {
+            var item = data[i];
+            document.getElementById(item.id).onclick = function() {
+                showPlaceholder(item);
+            }
+        }
+    }
+    setupPlaceholder();
+
 }
