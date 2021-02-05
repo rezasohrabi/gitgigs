@@ -29,5 +29,37 @@ export default function runClosureMethods() {
     var closure = outerFunc()
     closure();
     closure();
-    
+
+
+
+    //IIFE counter closure 
+    var counter = (function() {
+        var privateCounter = 0;
+        function changeCounter(num) {
+            privateCounter += num;
+        }
+
+        return {
+            value : function() {
+                return privateCounter;
+            },
+
+            increment : function() {
+                changeCounter(1)
+            },
+
+            decrement : function() {
+                changeCounter(-1)
+            }
+        }
+
+    })()
+    console.log('counter.increment: ', counter.increment());
+    console.log('counter.value', counter.value());
+    console.log('counter.increment', counter.increment());
+    console.log('counter.increment', counter.increment());
+    console.log('counter.increment', counter.increment());
+    console.log('counter.decrement', counter.decrement());
+    console.log('counter.value', counter.value());
+
 }
