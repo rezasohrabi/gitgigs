@@ -62,4 +62,43 @@ export default function runClosureMethods() {
     console.log('counter.decrement', counter.decrement());
     console.log('counter.value', counter.value());
 
+
+
+    //closure encapsulation and data hiding
+    var makeCounter = function() {
+        var privateCounter = 0;
+        function changeCounter(num) {
+            privateCounter += num
+        }
+
+        return {
+            value: function() {
+                return privateCounter;
+            },
+
+            increment: function() {
+                changeCounter(1);
+            },
+            
+            decrement: function() {
+                changeCounter(-1);
+            }
+        }
+    }
+    var counter1 = makeCounter();
+    console.log('counter1.increment: ', counter1.increment());
+    console.log('counter1.value', counter1.value());
+    console.log('counter1.increment', counter1.increment());
+    console.log('counter1.increment', counter1.increment());
+    console.log('counter1.increment', counter1.increment());
+    console.log('counter1.decrement', counter1.decrement());
+    console.log('counter1.value', counter1.value());
+    var counter2 = makeCounter();
+    console.log('counter2.increment: ', counter2.increment());
+    console.log('counter2.value', counter2.value());
+    console.log('counter2.increment', counter2.increment());
+    console.log('counter2.increment', counter2.increment());
+    console.log('counter2.increment', counter2.increment());
+    console.log('counter2.decrement', counter2.decrement());
+    console.log('counter2.value', counter2.value());
 }
